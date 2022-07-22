@@ -34,3 +34,24 @@ function showScrollUp() {
 }
 
 window.addEventListener('scroll', showScrollUp);
+
+
+// Open and Close menu
+const menuOpenCloseBtn = document.querySelector('.menu-close');
+const menu = document.querySelector('.nav');
+
+menuOpenCloseBtn.addEventListener('click', () => {
+  menu.classList.toggle('nav--open');
+  menuOpenCloseBtn.classList.toggle('menu-close--active');
+});
+
+
+// Close menu when clicked any link on nav
+const links = menu.querySelectorAll('.nav__link');
+
+links.forEach(link => {
+  link.addEventListener('click', () => {
+    menu.classList.remove('nav--open');
+    menuOpenCloseBtn.classList.remove('menu-close--active');
+  });
+});
